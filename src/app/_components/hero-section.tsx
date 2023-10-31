@@ -1,3 +1,5 @@
+import Link, { type LinkProps } from "next/link";
+
 import { cn } from "@/utils";
 
 type HeroSectionProps = {
@@ -10,7 +12,7 @@ export default function HeroSection({ children, heroImage }: HeroSectionProps) {
     <section className='w-full bg-[#222] pb-2'>
       <div className='relative'>
         {heroImage}
-        <article className='font-RazerF5 absolute top-0 z-10 w-full text-center'>
+        <article className='font-RazerF5 container absolute top-0 z-10 w-full text-center'>
           {children}
         </article>
       </div>
@@ -26,7 +28,10 @@ export function HeroSectionTitle({
 }: HeroSectionTitleProps) {
   return (
     <h1
-      className={cn("mb-2 text-[32px] font-medium sm:text-[56px]", className)}
+      className={cn(
+        "mb-2 text-[2rem] font-medium leading-[1.2] sm:text-[3.5rem] sm:leading-none",
+        className,
+      )}
     >
       {children}
     </h1>
@@ -40,8 +45,35 @@ export function HeroSectionSubTitle({
   className,
 }: HeroSectionSubTitleProps) {
   return (
-    <h3 className={cn("mb-2 text-[19px] font-light sm:text-[28px]", className)}>
+    <h3
+      className={cn(
+        "mb-2 text-[1.1875rem] font-light leading-[1.2] sm:text-[1.75rem]",
+        className,
+      )}
+    >
       {children}
     </h3>
+  );
+}
+
+type LinkItem = Omit<React.ComponentPropsWithoutRef<"a">, "children"> &
+  Omit<LinkProps, "children"> & {
+    text?: string;
+  };
+
+type HeroSectionLinksProps = {
+  children?: LinkItem[];
+};
+
+export function HeroSectionLinks({ children }: HeroSectionLinksProps) {
+  return (
+    <div className='flex items-center justify-center gap-8 text-[1.0625rem] font-light leading-normal sm:text-[1.3125rem]'>
+      {!!children?.length &&
+        children.map(({ text, ...props }, idx) => (
+          <Link key={idx} {...props}>
+            {text} <span className='text-primary'>{">"}</span>
+          </Link>
+        ))}
+    </div>
   );
 }

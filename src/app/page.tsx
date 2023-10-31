@@ -1,18 +1,20 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import HeroSection, {
+  HeroSectionLinks,
   HeroSectionSubTitle,
   HeroSectionTitle,
 } from "./_components/hero-section";
 import Notification from "./_components/notification";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <main className='min-h-screen pt-12 sm:pt-[60px]'>
       <Notification>
         Join RazerStore Rewards to unlock bonus Razer Silver, reduced minimum
-        spend for free shipping, exclusive perks and more.
+        spend for free shipping, exclusive perks and more.{" "}
+        <Link href={"/"}>Join now {">"}</Link>
       </Notification>
       <HeroSection
         heroImage={
@@ -39,9 +41,14 @@ export default function Home() {
           <HeroSectionSubTitle>
             EXCLUSIVE OFFERS WILL MANIFEST
           </HeroSectionSubTitle>
-          <Link href={"/"} className='text-[21px] font-light'>
-            Show Now <span className='text-[#44D62C]'>{">"}</span>
-          </Link>
+          <HeroSectionLinks>
+            {[
+              {
+                href: "/",
+                text: "Shop Now",
+              },
+            ]}
+          </HeroSectionLinks>
         </div>
       </HeroSection>
       <HeroSection
@@ -73,14 +80,18 @@ export default function Home() {
           <HeroSectionSubTitle>
             AUTOMOBILI LAMBORGHINI EDITION
           </HeroSectionSubTitle>
-          <div className='flex items-center justify-center gap-8 sm:text-[21px] sm:font-light'>
-            <Link href={"/"}>
-              Learn More <span className='text-[#44D62C]'>{">"}</span>
-            </Link>
-            <Link href={"/"}>
-              Buy <span className='text-[#44D62C]'>{">"}</span>
-            </Link>
-          </div>
+          <HeroSectionLinks>
+            {[
+              {
+                href: "/",
+                text: "Learn More",
+              },
+              {
+                href: "/",
+                text: "Buy",
+              },
+            ]}
+          </HeroSectionLinks>
         </div>
       </HeroSection>
     </main>
