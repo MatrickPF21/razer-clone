@@ -6,7 +6,7 @@ import Notification from "./_components/notification";
 
 export default function Home() {
   return (
-    <main className='min-h-screen'>
+    <main className='min-h-screen pt-12 sm:pt-[60px]'>
       <Notification>
         Join RazerStore Rewards to unlock bonus Razer Silver, reduced minimum
         spend for free shipping, exclusive perks and more.

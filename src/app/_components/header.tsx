@@ -1,4 +1,4 @@
-import { Menu, ShoppingCart } from "lucide-react";
+import { Menu, Search, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 
 export default function Header() {
   return (
-    <header className='h-12 w-full border-b border-[#44D62C] bg-black text-[#999]'>
+    <header className='fixed top-0 z-40 h-12 w-full border-b border-[#44D62C] bg-black text-[#999] sm:h-[60px]'>
       <div className='flex justify-between px-2 sm:hidden'>
         <Button className='h-12 w-12' variant='ghost' size='icon'>
           <Menu className='h-7 w-7' />
@@ -22,6 +22,35 @@ export default function Header() {
           </Link>
         </nav>
       </div>
+      <ul className='container hidden h-full grid-cols-11 place-items-center px-16 sm:grid'>
+        <li className='col-span-1'>
+          <nav>
+            <Link href={"/store"}>
+              <Image src='/logo.svg' alt='Razer logo' width='35' height='35' />
+            </Link>
+          </nav>
+        </li>
+        <li className='col-span-1'>
+          <nav>
+            <Link href={"/"}>Store</Link>
+          </nav>
+        </li>
+        {Array(7)
+          .fill(0)
+          .map((_, idx) => (
+            <li className='col-span-1' key={idx}></li>
+          ))}
+        <li className='col-span-1'>
+          <Button className='h-12 w-12' variant='ghost' size='icon'>
+            <Search className='h-7 w-7' />
+          </Button>
+        </li>
+        <li className='col-span-1'>
+          <Button className='h-12 w-12' variant='ghost' size='icon'>
+            <ShoppingCart className='h-7 w-7' />
+          </Button>
+        </li>
+      </ul>
     </header>
   );
 }
