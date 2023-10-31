@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Titillium_Web } from "next/font/google";
+import { Roboto, Titillium_Web } from "next/font/google";
 import "./globals.css";
 import Header from "./_components/header";
 
@@ -7,6 +7,13 @@ const titilliumWeb = Titillium_Web({
   weight: ["200", "300", "400", "600", "700", "900"],
   style: ["normal", "italic"],
   variable: "--font-titillium",
+  subsets: ["latin"],
+});
+
+const roboto = Roboto({
+  weight: ["100", "300", "400", "500", "700", "900"],
+  style: ["normal", "italic"],
+  variable: "--font-roboto",
   subsets: ["latin"],
 });
 
@@ -22,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className='dark'>
-      <body className={`${titilliumWeb.variable}`}>
+      <body className={`${titilliumWeb.variable} ${roboto.variable}`}>
         <Header />
         {children}
       </body>

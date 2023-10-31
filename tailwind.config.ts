@@ -72,6 +72,7 @@ module.exports = {
       },
       fontFamily: {
         titillium: ["var(--font-titillium)"],
+        roboto: ["var(--font-roboto)"],
       },
     },
   },
