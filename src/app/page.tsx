@@ -18,14 +18,14 @@ export default function Home() {
               src='/assets/halloween-campaign-homepage-mobile2x.webp'
               alt='Razer halloween campaign'
               fill
-              className='min-h-[650px] object-cover sm:hidden'
+              className='!relative min-h-[650px] object-cover sm:hidden'
               sizes='100vw'
             />
             <Image
               src='/assets/halloween-campaign-homepage-desktop2x.webp'
               alt='Razer halloween campaign'
               fill
-              className='hidden min-h-[650px] object-cover sm:block'
+              className='!relative hidden min-h-[650px] object-cover sm:block'
               sizes='100vw'
             />
           </>
@@ -37,6 +37,45 @@ export default function Home() {
           <Link href={"/"}>
             Show Now <span className='text-[#44D62C]'>{">"}</span>
           </Link>
+        </div>
+      </HeroSection>
+      <HeroSection
+        heroImage={
+          <>
+            <Image
+              src='/assets/razer-blade16-lamborghini-homepage-mobile2x.webp'
+              alt='Razer blade 16 campaign'
+              fill
+              className='!relative min-h-[650px] object-cover sm:hidden'
+              sizes='100vw'
+            />
+            <Image
+              src='/assets/razer-blade16-lamborghini-homepage-desktop2x.webp'
+              alt='Razer blade 16 campaign'
+              fill
+              className='!relative hidden min-h-[650px] object-cover sm:block'
+              sizes='100vw'
+            />
+          </>
+        }
+      >
+        <div className='pt-6'>
+          <div className='mx-auto mb-4 w-fit bg-[#ff9c07] px-4 py-1 text-start font-roboto text-[0.875rem] text-black'>
+            <span className='block text-[0.6rem] text-xs leading-[1em]'>
+              RAZER.COM
+            </span>
+            <div className='leading-[1em]'>EXCLUSIVE</div>
+          </div>
+          <h1 className='mb-2 text-[32px] font-semibold'>NEW RAZER BLADE 16</h1>
+          <p className='mb-2 text-lg'>AUTOMOBILI LAMBORGHINI EDITION</p>
+          <div className='flex items-center justify-center gap-8'>
+            <Link href={"/"}>
+              Learn More <span className='text-[#44D62C]'>{">"}</span>
+            </Link>
+            <Link href={"/"}>
+              Buy <span className='text-[#44D62C]'>{">"}</span>
+            </Link>
+          </div>
         </div>
       </HeroSection>
     </main>

@@ -5,9 +5,13 @@ type HeroSectionProps = {
 
 export default function HeroSection({ children, heroImage }: HeroSectionProps) {
   return (
-    <section className='relative w-full'>
-      {heroImage}
-      <article className='relative z-10 w-full text-center'>{children}</article>
+    <section className='w-full bg-[#222] pb-2'>
+      <div className='relative'>
+        {heroImage}
+        <article className='absolute top-0 z-10 w-full text-center'>
+          {children}
+        </article>
+      </div>
     </section>
   );
 }
