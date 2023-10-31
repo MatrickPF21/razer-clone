@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import HeroSection from "./_components/hero-section";
+import HeroSection, {
+  HeroSectionSubTitle,
+  HeroSectionTitle,
+} from "./_components/hero-section";
 import Notification from "./_components/notification";
 
 export default function Home() {
@@ -32,9 +35,11 @@ export default function Home() {
         }
       >
         <div className='pt-14'>
-          <h1 className='mb-2 text-4xl font-semibold'>WAKE YOUR HALLOWEEN</h1>
-          <p className='mb-2 text-lg'>EXCLUSIVE OFFERS WILL MANIFEST</p>
-          <Link href={"/"}>
+          <HeroSectionTitle>WAKE YOUR HALLOWEEN</HeroSectionTitle>
+          <HeroSectionSubTitle>
+            EXCLUSIVE OFFERS WILL MANIFEST
+          </HeroSectionSubTitle>
+          <Link href={"/"} className='text-[21px] font-light'>
             Show Now <span className='text-[#44D62C]'>{">"}</span>
           </Link>
         </div>
@@ -60,15 +65,15 @@ export default function Home() {
         }
       >
         <div className='pt-6'>
-          <div className='mx-auto mb-4 w-fit bg-[#ff9c07] px-4 py-1 text-start font-roboto text-[0.875rem] text-black'>
-            <span className='block text-[0.6rem] text-xs leading-[1em]'>
-              RAZER.COM
-            </span>
+          <div className='mx-auto mb-4 w-fit bg-[#ff9c07] px-4 py-1 text-start font-roboto text-[0.875rem] text-black sm:font-bold'>
+            <span className='block text-[0.6rem] leading-[1em]'>RAZER.COM</span>
             <div className='leading-[1em]'>EXCLUSIVE</div>
           </div>
-          <h1 className='mb-2 text-[32px] font-semibold'>NEW RAZER BLADE 16</h1>
-          <p className='mb-2 text-lg'>AUTOMOBILI LAMBORGHINI EDITION</p>
-          <div className='flex items-center justify-center gap-8'>
+          <HeroSectionTitle>NEW RAZER BLADE 16</HeroSectionTitle>
+          <HeroSectionSubTitle>
+            AUTOMOBILI LAMBORGHINI EDITION
+          </HeroSectionSubTitle>
+          <div className='flex items-center justify-center gap-8 sm:text-[21px] sm:font-light'>
             <Link href={"/"}>
               Learn More <span className='text-[#44D62C]'>{">"}</span>
             </Link>
