@@ -72,7 +72,7 @@ module.exports = {
       },
       fontFamily: {
         titillium: ["var(--font-titillium)"],
-        roboto: ["var(--font-roboto)"],
+        roboto: ["var(--font-roboto)", "sans-serif"],
         RazerF5: ["RazerF5"],
       },
     },

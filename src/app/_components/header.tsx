@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 
 export default function Header() {
   return (
-    <header className='font-RazerF5 fixed top-0 z-40 h-12 w-full border-b border-[#44D62C] bg-black text-[#999] sm:h-[60px]'>
+    <header className='font-RazerF5 fixed top-0 z-40 h-12 w-full border-b border-primary bg-black text-[#999] sm:h-[60px]'>
       <div className='flex justify-between px-2 sm:hidden'>
         <Button className='h-12 w-12' variant='ghost' size='icon'>
           <Menu className='h-7 w-7' />

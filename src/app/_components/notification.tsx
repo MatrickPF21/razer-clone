@@ -4,8 +4,10 @@ type NotificationProps = {
 
 export default function Notification({ children }: NotificationProps) {
   return (
-    <section className='font-roboto bg-[#555] px-8 pb-2 pt-3 text-center text-sm text-white'>
-      <p>{children}</p>
+    <section className='bg-[#555] text-center font-roboto text-[14px] font-normal leading-[20px] tracking-[-0.01px] text-white'>
+      <div className='container pb-[9.5px] pl-[30px] pr-[24px] pt-[11.5px]'>
+        <p>{children}</p>
+      </div>
     </section>
   );
 }

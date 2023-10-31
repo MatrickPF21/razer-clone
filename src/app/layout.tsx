@@ -15,6 +15,7 @@ const roboto = Roboto({
   style: ["normal", "italic"],
   variable: "--font-roboto",
   subsets: ["latin"],
+  fallback: ["sans-serif"],
 });
 
 export const metadata: Metadata = {
