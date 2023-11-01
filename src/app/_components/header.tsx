@@ -22,17 +22,17 @@ export default function Header() {
           </Link>
         </nav>
       </div>
-      <ul className='container hidden h-full grid-cols-11 place-items-center px-16 sm:grid'>
+      <ul className='container hidden h-full grid-cols-11 place-items-center px-16 font-light sm:grid'>
         <li className='col-span-1'>
           <nav>
-            <Link href={"/store"}>
+            <Link href={"/"}>
               <Image src='/logo.svg' alt='Razer logo' width='35' height='35' />
             </Link>
           </nav>
         </li>
         <li className='col-span-1'>
           <nav>
-            <Link href={"/"}>Store</Link>
+            <Link href={"/store"}>Store</Link>
           </nav>
         </li>
         {Array(7)

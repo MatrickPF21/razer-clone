@@ -1,16 +1,17 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import HeroSection, {
   HeroSectionLinks,
   HeroSectionSubTitle,
   HeroSectionTitle,
 } from "./_components/hero-section";
+import MainWrapper from "./_components/main-wrapper";
 import Notification from "./_components/notification";
-import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className='min-h-screen pt-12 sm:pt-[60px]'>
+    <MainWrapper>
       <Notification>
         Join RazerStore Rewards to unlock bonus Razer Silver, reduced minimum
         spend for free shipping, exclusive perks and more.{" "}
@@ -94,6 +95,6 @@ export default function Home() {
           </HeroSectionLinks>
         </div>
       </HeroSection>
-    </main>
+    </MainWrapper>
   );
 }
