@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className='dark'>
-      <body className={`${titilliumWeb.variable} ${roboto.variable}`}>
+      <body className={`${titilliumWeb.variable} ${roboto.variable} bg-black`}>
         <Header />
         {children}
       </body>
