@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <MainWrapper>
       <Notification>
-        Join RazerStore Rewards to unlock bonus Razer Silver, reduced minimum
-        spend for free shipping, exclusive perks and more.{" "}
+        RazerStore Rewards Giveaway: Become a member and stand to win both the
+        Razer Kitsune and the PlayStation 5.{" "}
         <Link href={"/"}>Join now {">"}</Link>
       </Notification>
       <HeroSection
