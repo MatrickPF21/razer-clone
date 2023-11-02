@@ -5,7 +5,7 @@ import HeroSection, {
   HeroSectionLinks,
   HeroSectionSubTitle,
   HeroSectionTitle,
-} from "./_components/hero-section";
+} from "./_components/sections/hero-section";
 import MainWrapper from "./_components/main-wrapper";
 import Notification from "./_components/notification";
 
