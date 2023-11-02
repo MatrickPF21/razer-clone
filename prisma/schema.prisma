@@ -6,15 +6,51 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Product {
+  id    String  @id
+  name  String
+  isRgb Boolean
+  specs String
+  image String
+  url   String
+
+  categories CategoryInProduct[]
+  price      Price?
+  badge      Badge?              @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+  badgeId    String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([badgeId])
+  @@map("product")
+}
+
+model CategoryInProduct {
+  productId  String
+  categoryId String
+
+  product  Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([productId, categoryId])
+  @@index([productId])
+  @@index([categoryId])
+  @@map("category_in_product")
 }
 
 model Category {
-  code String @id
+  id   String @id
   name String
   url  String
   slug String
+
+  products CategoryInProduct[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -27,6 +63,9 @@ model Price {
   amount   Int // in cents
   currency String
 
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId String  @unique
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -38,6 +77,8 @@ model Badge {
   name        String
   displayText String
   color       BadgeColor
+
+  products Product[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
