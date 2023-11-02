@@ -10,6 +10,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Price {
+  id       String @id @default(uuid())
+  amount   Int // in cents
+  currency String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("price")
+}
+
 model Badge {
   id          String     @id @default(uuid())
   name        String
