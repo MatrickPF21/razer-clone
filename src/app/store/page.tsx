@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import MainWrapper from "../_components/main-wrapper";
 import Notification from "../_components/notification";
 import ProductCard from "../_components/product-card";
@@ -74,11 +72,7 @@ const staticProducts: StaticProductProps[] = [
 export default function StorePage() {
   return (
     <MainWrapper>
-      <Notification>
-        RazerStore Rewards Giveaway: Become a member and stand to win both the
-        Razer Kitsune and the PlayStation 5.{" "}
-        <Link href={"/"}>Join now {">"}</Link>
-      </Notification>
+      <Notification />
       <section className='mb-10 pt-10 sm:container sm:max-w-[1236px] sm:px-0'>
         <article>
           <ul className='scroll-bar-h-5px flex w-full items-center gap-12 overflow-x-auto px-4 pb-8 font-roboto text-sm sm:justify-between sm:gap-4 sm:overflow-hidden'>

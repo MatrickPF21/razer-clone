@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import HeroSection, {
   HeroSectionLinks,
@@ -12,11 +11,7 @@ import Notification from "./_components/notification";
 export default function Home() {
   return (
     <MainWrapper>
-      <Notification>
-        RazerStore Rewards Giveaway: Become a member and stand to win both the
-        Razer Kitsune and the PlayStation 5.{" "}
-        <Link href={"/"}>Join now {">"}</Link>
-      </Notification>
+      <Notification />
       <HeroSection
         heroImage={
           <>
