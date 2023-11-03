@@ -62,6 +62,7 @@ model Price {
   id       String @id @default(uuid())
   amount   Int // in cents
   currency String
+  discount Int? // in decimal
 
   product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId String  @unique
@@ -88,6 +89,5 @@ model Badge {
 
 enum BadgeColor {
   YELLOW
-  BLUE
   ORANGE
 }
