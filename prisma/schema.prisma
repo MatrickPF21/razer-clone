@@ -45,10 +45,10 @@ model CategoryInProduct {
 }
 
 model Category {
-  id   String @id
+  id   String  @id
   name String
   url  String
-  slug String
+  slug String?
 
   products CategoryInProduct[]
 
