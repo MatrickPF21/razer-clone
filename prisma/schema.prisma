@@ -12,12 +12,14 @@ datasource db {
 }
 
 model Product {
-  id    String  @id
-  name  String
-  isRgb Boolean
-  specs String
-  image String
-  url   String
+  id         String  @id
+  name       String
+  isRgb      Boolean
+  summary    String? @db.VarChar(300)
+  promoliner String? @db.VarChar(300)
+  specs      String  @db.VarChar(500)
+  image      String  @db.VarChar(1000)
+  url        String
 
   categories CategoryInProduct[]
   price      Price?
