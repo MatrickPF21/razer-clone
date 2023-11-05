@@ -10,6 +10,7 @@ async function createProduct(req: NextRequest) {
     const parse = parseCreateProductSchema(body);
 
     if (!parse.success) {
+      console.log(parse.error.errors[0]?.path);
       return NextResponse.json(
         {
           message: "Invalid schema",
@@ -25,11 +26,15 @@ async function createProduct(req: NextRequest) {
     const newProduct = await db.product.create({
       data: {
         ...product,
-        badge: {
-          connect: {
-            id: badgeId,
-          },
-        },
+        ...(badgeId
+          ? {
+              badge: {
+                connect: {
+                  id: badgeId,
+                },
+              },
+            }
+          : {}),
         price: {
           create: {
             ...price,

@@ -7,13 +7,13 @@ const createProductSchema = z.object({
   specs: z.string(),
   image: z.string(),
   url: z.string(),
-  badgeId: z.string().optional(),
-  summary: z.string().optional(),
-  promoliner: z.string().optional(),
+  badgeId: z.string().optional().nullable(),
+  summary: z.string().optional().nullable(),
+  promoliner: z.string().optional().nullable(),
   price: z.object({
     amount: z.number(),
     currency: z.string(),
-    discount: z.number().optional(),
+    discount: z.number().optional().nullable(),
   }),
   categoryIds: z.array(z.string()),
 });
