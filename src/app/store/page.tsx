@@ -1,10 +1,13 @@
+import React from "react";
 import MainWrapper from "../_components/main-wrapper";
 import Notification from "../_components/notification";
-import ProductCard from "../_components/product-card";
+import { ProductCardSkeleton } from "../_components/product-card";
 import CarouselSection from "../_components/sections/carousel-section";
 import StaticProduct, {
   type StaticProductProps,
 } from "../_components/static-product";
+import { BestSellers, FreshOffTheLine, RazerExclusives } from "./rcs-suspense";
+import WhyBuyRazerSection from "../_components/sections/why-buy-razer-section";
 
 const staticProducts: StaticProductProps[] = [
   {
@@ -94,22 +97,45 @@ export default function StorePage() {
         title='FRESH OFF THE LINE'
         description='Check out our latest releases to secure the most up-to-date upgrades for your setup'
       >
-        {Array(9)
-          .fill(0)
-          .map((_, idx) => (
-            <ProductCard
-              key={idx}
-              image={"/assets/blade14-p9-black-500x500.png"}
-              altText='Blade 14 P9 Black'
-              name='Razer Blade 14 Models'
-              summary='NVIDIA® GeForce RTX™ 40 Series 14” Laptop with AMD Ryzen 9 7940HS Processor'
-              promoliner='Score a US$300 Gift Card with the purchase of any RTX™ 4060 and 4070 laptops.'
-              price={239999}
-              priceCurrency='USD'
-              hrefLink='/'
-            />
-          ))}
+        <React.Suspense
+          fallback={Array(9)
+            .fill(0)
+            .map((_, idx) => (
+              <ProductCardSkeleton key={idx} />
+            ))}
+        >
+          <FreshOffTheLine />
+        </React.Suspense>
       </CarouselSection>
+      <CarouselSection
+        title='BEST SELLERS'
+        description='Join the hype train with the hottest products in our arsenal'
+      >
+        <React.Suspense
+          fallback={Array(9)
+            .fill(0)
+            .map((_, idx) => (
+              <ProductCardSkeleton key={idx} />
+            ))}
+        >
+          <BestSellers />
+        </React.Suspense>
+      </CarouselSection>
+      <CarouselSection
+        title='RAZER EXCLUSIVES'
+        description='Explore unique products and services only available at our official online store'
+      >
+        <React.Suspense
+          fallback={Array(9)
+            .fill(0)
+            .map((_, idx) => (
+              <ProductCardSkeleton key={idx} />
+            ))}
+        >
+          <RazerExclusives />
+        </React.Suspense>
+      </CarouselSection>
+      <WhyBuyRazerSection />
     </MainWrapper>
   );
 }

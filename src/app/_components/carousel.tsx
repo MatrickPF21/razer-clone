@@ -43,7 +43,7 @@ export default function Carousel({
           {children}
 
           {/* spacer */}
-          <li className='relative min-h-[480px] w-[295px] translate-x-8 snap-center text-transparent sm:hidden'>
+          <li className='relative min-h-[480px] translate-x-8 snap-center text-transparent sm:hidden'>
             a
           </li>
         </ul>

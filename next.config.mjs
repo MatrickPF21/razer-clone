@@ -13,6 +13,11 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    remotePatterns: [{
+      hostname: "assets3.razerzone.com"
+    }]
+  }
 }
 
 export default nextConfig;

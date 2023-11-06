@@ -1,17 +1,18 @@
+import type { BadgeColor, Price } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 
 import { cn, formatPrices } from "@/utils";
+import { Skeleton } from "./ui/skeleton";
 
-type ProductCardProps = {
+export type ProductCardProps = {
   image: string;
   altText: string;
   name: string;
-  summary: string;
-  promoliner: string;
-  price: number;
-  priceCurrency: string;
+  summary: string | null;
+  promoliner: string | null;
   hrefLink: string;
+  price: Pick<Price, "amount" | "currency" | "discount">;
   badge?: ProductCardBadgeProps;
   isRgb?: boolean;
 };
@@ -21,7 +22,6 @@ export default function ProductCard({
   image,
   name,
   price,
-  priceCurrency,
   promoliner,
   summary,
   hrefLink,
@@ -29,7 +29,10 @@ export default function ProductCard({
   isRgb,
 }: ProductCardProps) {
   return (
-    <li className='relative min-h-[480px] w-[295px] translate-x-8 snap-center bg-[#222]'>
+    <li
+      className='relative grid min-h-[480px] w-[295px] translate-x-8 snap-center self-stretch bg-[#222]'
+      style={{ gridTemplateRows: "298px 1fr" }}
+    >
       <Link href={hrefLink} className='block bg-[#111]'>
         <Image src={image} alt={altText} width={295} height={295} />
       </Link>
@@ -49,20 +52,39 @@ export default function ProductCard({
         )}
         <div className='-mt-4 flex flex-col gap-4 sm:mt-0'>
           <h5 className='text-[1.125rem] leading-[25px]'>{name}</h5>
-          <p className='text-[0.875rem] font-light leading-[1.3] text-[#888]'>
-            {summary}
-          </p>
-          <p className='text-[0.875rem] font-light leading-[1.3]'>
-            {promoliner}
-          </p>
+          {!!summary && (
+            <p className='text-[0.875rem] font-light leading-[1.3] text-[#888]'>
+              {summary}
+            </p>
+          )}
+          {!!promoliner && (
+            <p className='text-[0.875rem] font-light leading-[1.3]'>
+              {promoliner}
+            </p>
+          )}
         </div>
         <div className='flex items-end justify-between text-[14px]'>
           <div className='leading-[16px]'>
-            <p>
-              From
-              <br />
-              {formatPrices(price, priceCurrency)}
-            </p>
+            {price.discount ? (
+              <p>
+                <span>
+                  {formatPrices(
+                    price.amount * (price.discount / 100) - 1,
+                    price.currency,
+                  )}
+                </span>
+                <br />
+                <span className='text-[#999] line-through'>
+                  {formatPrices(price.amount, price.currency)}
+                </span>
+              </p>
+            ) : (
+              <p>
+                From
+                <br />
+                {formatPrices(price.amount, price.currency)}
+              </p>
+            )}
           </div>
           <div>
             <Link
@@ -79,17 +101,17 @@ export default function ProductCard({
   );
 }
 
-const colorConfig = {
+const colorConfig: Record<BadgeColor, string> = {
   ORANGE: "bg-[#ff9c07]",
-  BLUE: "bg-[#28aadc]",
   YELLOW: "bg-[#ffc107]",
 };
 
 type ProductCardBadgeProps = {
-  color: keyof typeof colorConfig;
+  color: BadgeColor;
+  text: string;
 };
 
-function ProductCardBadge({ color }: ProductCardBadgeProps) {
+function ProductCardBadge({ color, text }: ProductCardBadgeProps) {
   const bg = colorConfig[color];
 
   return (
@@ -99,7 +121,13 @@ function ProductCardBadge({ color }: ProductCardBadgeProps) {
         bg,
       )}
     >
-      WITH US$300 GIFT CARD
+      {text}
     </div>
+  );
+}
+
+export function ProductCardSkeleton() {
+  return (
+    <Skeleton className='relative min-h-[480px] w-[295px] translate-x-8 snap-center bg-[#222]'></Skeleton>
   );
 }
