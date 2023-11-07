@@ -8,6 +8,7 @@ const titilliumWeb = Titillium_Web({
   style: ["normal", "italic"],
   variable: "--font-titillium",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const roboto = Roboto({
@@ -16,6 +17,7 @@ const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
   fallback: ["sans-serif"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
