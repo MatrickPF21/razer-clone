@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@glidejs/glide':
+    specifier: ^3.6.0
+    version: 3.6.0
   '@prisma/client':
     specifier: 5.5.2
     version: 5.5.2(prisma@5.5.2)
@@ -49,6 +52,9 @@ devDependencies:
   '@types/eslint':
     specifier: ^8.44.6
     version: 8.44.6
+  '@types/glidejs__glide':
+    specifier: ^3.6.4
+    version: 3.6.4
   '@types/node':
     specifier: ^20
     version: 20.8.9
@@ -145,6 +151,10 @@ packages:
     resolution: {integrity: sha512-mjZVbpaeMZludF2fsWLD0Z9gCref1Tk4i9+wddjRvpUNqqcndPkBD09N/Mapey0b3jaXbLm2kICwFv2E64QinA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@glidejs/glide@3.6.0:
+    resolution: {integrity: sha512-47Aa+JmYjY4xTFpTtYCwrqirmI1arnp1UZETwtWpbTPisXUAuxrdJxKJLH8KHFWMsSrLi9+AcfyfzDIuO75rEA==}
+    dev: false
 
   /@humanwhocodes/config-array@0.11.13:
     resolution: {integrity: sha512-JSBDMiDKSzQVngfRjOdFXgFfklaXI4K9nLF49Auh21lmBWRLIK3+xTErTWD4KU54pb6coM6ESE7Awz/FNU3zgQ==}
@@ -405,6 +415,10 @@ packages:
 
   /@types/estree@1.0.3:
     resolution: {integrity: sha512-CS2rOaoQ/eAgAfcTfq6amKG7bsN+EMcgGY4FAFQdvSj2y1ixvOZTUA9mOtCai7E1SYu283XNw7urKK30nP3wkQ==}
+    dev: true
+
+  /@types/glidejs__glide@3.6.4:
+    resolution: {integrity: sha512-N7sS9iNqZ9kJ6tpDdE/GMDoZ/aOtxQ65Ubw8pyCjI06ePbUh9Rh0sE7zITwlSp9bSEaIwwQYTov85yLXVW81Fg==}
     dev: true
 
   /@types/json-schema@7.0.14:
