@@ -3,7 +3,9 @@
 import Glide from "@glidejs/glide";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React from "react";
-import "../../../public/assets/css/glide.css";
+import "./glide.css";
+import Image from "next/image";
+import { cn } from "@/utils";
 
 type GlideCarouselProps = Partial<Glide.Options> & {
   items: number;
@@ -31,7 +33,18 @@ export default function GlideCarousel({
   return (
     <div className='glide relative w-full'>
       <div className='glide__track overflow-hidden' data-glide-el='track'>
-        <ul className='glide__slides'>{children}</ul>
+        <ul
+          className='glide__slides relative grid w-full touch-pan-y list-none auto-cols-auto flex-nowrap overflow-hidden whitespace-nowrap p-0 will-change-transform'
+          style={{
+            backfaceVisibility: "hidden",
+            transformStyle: "preserve-3d",
+            gridTemplateColumns: "repeat(100, 1fr)",
+            transition: "transform 0ms cubic-bezier(0.165, 0.84, 0.44, 1) 0s",
+            transform: "translate3d(-770px, 0px, 0px)",
+          }}
+        >
+          {children}
+        </ul>
       </div>
       <div className='glide__arrows' data-glide-el='controls'>
         <button
@@ -67,4 +80,77 @@ export default function GlideCarousel({
 
 export function GlideItem({ children }: React.PropsWithChildren) {
   return <li className='glide__slide pb-8 sm:pb-0'>{children}</li>;
+}
+
+export type GlideCarouselCardProps = {
+  image: string;
+  mobileImage: string;
+  title: string;
+  titleClassName?: string;
+  description: string;
+  descriptionClassName?: string;
+};
+
+export function GlideCarouselCard({
+  image,
+  mobileImage,
+  title,
+  titleClassName,
+  description,
+  descriptionClassName,
+}: GlideCarouselCardProps) {
+  return (
+    <GlideItem>
+      <div className='relative mx-auto sm:max-w-[1200px]'>
+        <picture
+          className='relative hidden min-h-[365px] w-full bg-cover bg-[top_right] sm:block sm:min-h-[250px] sm:bg-[top_center]'
+          style={{
+            backgroundImage: `url("${"/assets/static-slider" + image}")`,
+          }}
+        >
+          <Image
+            src={"/assets/static-slider" + image}
+            alt=''
+            fill
+            sizes='100vw'
+            className='hidden object-cover'
+          />
+        </picture>
+        <picture
+          className='relative block min-h-[365px] w-full bg-cover bg-[top_right] sm:hidden sm:min-h-[250px] sm:bg-[top_center]'
+          style={{
+            backgroundImage: `url("${"/assets/static-slider" + mobileImage}")`,
+          }}
+        >
+          <Image
+            src={"/assets/static-slider" + mobileImage}
+            alt=''
+            fill
+            sizes='100vw'
+            className='hidden object-cover'
+          />
+        </picture>
+        <div className='px-4 py-2 sm:absolute sm:left-[62%] sm:top-0 sm:mx-auto sm:grid sm:h-full sm:max-h-[250] sm:w-full sm:max-w-[1200px] sm:items-center'>
+          <div className='sm:justify-self-start'>
+            <h2
+              className={cn(
+                "my-4 font-RazerF5 text-[1.5rem] font-bold leading-[1.875rem]",
+                titleClassName,
+              )}
+            >
+              {title}
+            </h2>
+            <p
+              className={cn(
+                "font-roboto text-[1.125rem] leading-[1.5rem] text-[#999]",
+                descriptionClassName,
+              )}
+            >
+              {description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </GlideItem>
+  );
 }
