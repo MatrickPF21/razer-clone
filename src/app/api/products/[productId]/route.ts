@@ -20,7 +20,7 @@ async function updateProduct(req: NextRequest) {
       );
     }
 
-    const product = parse.data;
+    const { badgeId, ...product } = parse.data;
 
     const productExists = await db.product.findUnique({
       where: {
@@ -43,7 +43,18 @@ async function updateProduct(req: NextRequest) {
       where: {
         id: product.id,
       },
-      data: product,
+      data: {
+        ...product,
+        ...(badgeId
+          ? {
+              badge: {
+                connect: {
+                  id: badgeId,
+                },
+              },
+            }
+          : {}),
+      },
     });
 
     return NextResponse.json(
