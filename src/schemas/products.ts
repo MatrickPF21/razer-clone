@@ -24,4 +24,5 @@ export const parseCreateProductSchema = createProductSchema.safeParse;
 
 export const parseUpdateProductSchema = createProductSchema.omit({
   price: true,
+  categoryIds: true,
 }).safeParse;
