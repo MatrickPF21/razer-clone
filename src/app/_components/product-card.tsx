@@ -97,17 +97,21 @@ export default function ProductCard({
         </div>
       </div>
       {!!badge && <ProductCardBadge {...badge} />}
+      {!badge && price.discount && (
+        <ProductCardBadge color='BLUE' text={`${price.discount}% OFF`} />
+      )}
     </li>
   );
 }
 
-const colorConfig: Record<BadgeColor, string> = {
+const colorConfig: Record<BadgeColor | "BLUE", string> = {
   ORANGE: "bg-[#ff9c07]",
   YELLOW: "bg-[#ffc107]",
+  BLUE: "bg-[#28aadc]",
 };
 
 type ProductCardBadgeProps = {
-  color: BadgeColor;
+  color: keyof typeof colorConfig;
   text: string;
 };
 
