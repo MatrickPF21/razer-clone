@@ -21,3 +21,7 @@ const createProductSchema = z.object({
 export type Product = z.infer<typeof createProductSchema>;
 
 export const parseCreateProductSchema = createProductSchema.safeParse;
+
+export const parseUpdateProductSchema = createProductSchema.omit({
+  price: true,
+}).safeParse;
