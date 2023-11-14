@@ -130,7 +130,7 @@ export function GlideCarouselCard({
             className='hidden object-cover'
           />
         </picture>
-        <div className='px-4 py-2 sm:absolute sm:left-[62%] sm:top-0 sm:mx-auto sm:grid sm:h-full sm:max-h-[250] sm:w-full sm:max-w-[1200px] sm:items-center'>
+        <div className='px-4 py-2 sm:absolute sm:left-[62%] sm:top-0 sm:mx-auto sm:grid sm:h-full sm:max-h-[250] sm:w-full sm:max-w-[33%] sm:items-center'>
           <div className='sm:justify-self-start'>
             <h2
               className={cn(
