@@ -1,4 +1,5 @@
-import StaticProduct, { type StaticProductProps } from "../static-product";
+import StaticProducts from "../static-products";
+import { type StaticProductProps } from "../static-products";
 
 type StorePageDescriptionSectionProps = {
   title: string;
@@ -11,13 +12,7 @@ export default function StorePageDescriptionSection({
 }: StorePageDescriptionSectionProps) {
   return (
     <section className='mb-10 pt-10 sm:container sm:max-w-[1236px] sm:px-0'>
-      <article>
-        <ul className='scroll-bar-h-5px flex w-full items-center gap-12 overflow-x-auto px-4 pb-8 font-roboto text-sm sm:justify-between sm:gap-4 sm:overflow-hidden'>
-          {staticProducts.map((product, idx) => (
-            <StaticProduct key={idx} {...product} />
-          ))}
-        </ul>
-      </article>
+      <StaticProducts products={staticProducts} />
       <article className='pl-6 pr-4 pt-8 sm:mx-auto'>
         <h1 className='mb-[0.3rem] font-titillium text-[1.75rem] font-bold leading-none text-primary sm:mb-0 sm:text-[2.25rem] sm:leading-[2.625rem]'>
           {title}
