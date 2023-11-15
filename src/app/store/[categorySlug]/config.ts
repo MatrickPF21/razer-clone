@@ -183,3 +183,93 @@ pageMap.set("gaming-desktops-and-components", {
     },
   ],
 });
+
+pageMap.set("gaming-mice", {
+  pageDescription: {
+    title: "GAMING MICE",
+    description:
+      "High-performance wired and wireless mice made for every gamer's hand",
+  },
+  sections: [
+    {
+      type: "carousel",
+      title: "THE RAZER VIPER RANGE",
+      description:
+        "A range of ultra-lightweight, high-performance gaming mice bred for esports",
+      filter: [
+        {
+          name: {
+            contains: "Razer Viper",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "THE RAZER COBRA RANGE",
+      description:
+        "Compact, lightweight gaming mice made for all-round control, precision, and immersion",
+      filter: [
+        {
+          name: {
+            contains: "Razer Cobra",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "THE RAZER BASILISK RANGE",
+      description:
+        "Feature-rich, highly customizable gaming mice designed to fit any playstyle",
+      filter: [
+        {
+          name: {
+            contains: "Razer Basilisk V3",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "THE RAZER NAGA RANGE",
+      description:
+        "MMO and MOBA-centric gaming mice with a unique 12-button thumb grid for maximum control",
+      filter: [
+        {
+          name: {
+            contains: "Razer Naga",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "THE RAZER DEATHADDER RANGE",
+      description:
+        "Competitive gaming mice with an award-winning legacy of iconic ergonomics",
+      filter: [
+        {
+          name: {
+            contains: "Razer DeathAdder V",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "OTHERS",
+      description:
+        "Beyond our flagship selection, lies a range of gear designed to meet the needs of every gamer",
+      filter: [
+        {
+          OR: ["Razer Pro Click", "Razer Orochi V2"].map(f => ({
+            name: {
+              contains: f,
+            },
+          })),
+        },
+      ],
+    },
+  ],
+});

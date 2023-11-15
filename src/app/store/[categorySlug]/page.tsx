@@ -16,7 +16,7 @@ type Context = {
   };
 };
 
-const avoidFilteringSlug = ["gaming-desktops-and-components"];
+const avoidFilteringSlug = ["gaming-desktops-and-components", "gaming-mice"];
 
 export default function StorePageFilteredByCategorySlug({ params }: Context) {
   const parse = parseCategorySlugSchema(params.categorySlug);
