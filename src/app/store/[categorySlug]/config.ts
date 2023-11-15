@@ -273,3 +273,64 @@ pageMap.set("gaming-mice", {
     },
   ],
 });
+
+pageMap.set("gaming-keyboards", {
+  pageDescription: {
+    title: "GAMING KEYBOARDS",
+    description: "Full-sized, Tenkeyless, and 60% keyboards",
+  },
+  sections: [
+    {
+      type: "carousel",
+      title: "THE RAZER BLACKWIDOW RANGE",
+      description: "Mechanical gaming keyboards powered by Razer Chroma™ RGB",
+      filter: [
+        {
+          name: {
+            contains: "Razer BlackWidow",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "THE RAZER HUNTSMAN RANGE",
+      description:
+        "Esports optical keyboards for unrivalled speed and responsiveness",
+      filter: [
+        {
+          name: {
+            contains: "Razer Huntsman",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "THE RAZER DEATHSTALKER RANGE",
+      description: "Ergonomic low-profile optical keyboards for work and play",
+      filter: [
+        {
+          name: {
+            contains: "Razer DeathStalker",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "OTHERS",
+      description:
+        "Beyond our flagship selection, lies a range of gear designed to meet the needs of every gamer",
+      filter: ["Razer BlackWidow", "Razer Huntsman", "Razer DeathStalker"].map(
+        f => ({
+          name: {
+            not: {
+              contains: f,
+            },
+          },
+        }),
+      ),
+    },
+  ],
+});

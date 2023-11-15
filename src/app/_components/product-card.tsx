@@ -69,7 +69,7 @@ export default function ProductCard({
               <p>
                 <span>
                   {formatPrices(
-                    price.amount * (price.discount / 100) - 1,
+                    price.amount * ((100 - price.discount) / 100),
                     price.currency,
                   )}
                 </span>
