@@ -1,4 +1,4 @@
-import type { Badge, Price, Product } from "@prisma/client";
+import type { Badge, Price, Prisma, Product } from "@prisma/client";
 
 import type { ProductCardProps } from "@/app/_components/product-card";
 import { db } from "@/server/db";
@@ -6,7 +6,8 @@ import ProductCard from "@/app/_components/product-card";
 
 type ProductsByCategorySlugParams = {
   slug: string;
-  filter: string[];
+  filter: Prisma.ProductWhereInput[];
+  filteringSlug?: boolean;
 };
 
 const render = (
@@ -35,26 +36,23 @@ const render = (
 export async function ProductsByCategorySlug({
   filter,
   slug,
+  filteringSlug = true,
 }: ProductsByCategorySlugParams) {
   const products = await db.product.findMany({
     where: {
       AND: [
-        {
-          categories: {
-            some: {
-              category: {
-                slug,
+        filteringSlug
+          ? {
+              categories: {
+                some: {
+                  category: {
+                    slug,
+                  },
+                },
               },
-            },
-          },
-        },
-        {
-          OR: filter.map(f => ({
-            promoliner: {
-              contains: f,
-            },
-          })),
-        },
+            }
+          : {},
+        ...filter,
       ],
     },
     take: 9,

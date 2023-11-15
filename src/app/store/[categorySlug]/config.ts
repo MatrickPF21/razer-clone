@@ -1,3 +1,4 @@
+import type { Prisma } from "@prisma/client";
 import { z } from "zod";
 
 import { type GlideCarouselCardProps } from "@/app/_components/glide-carousel";
@@ -27,7 +28,7 @@ type CarouselSection = {
   type: "carousel";
   title: string;
   description: string;
-  filterKeywords: string[];
+  filter: Prisma.ProductWhereInput[];
 };
 type SliderSection = {
   type: "slider";
@@ -53,7 +54,13 @@ pageMap.set("gaming-laptops", {
       title: "GEFORCE RTX™ 40 SERIES LAPTOPS",
       description:
         "Discover our newest Razer Blades featuring the latest NVIDIA graphics cards, Intel, and AMD processors",
-      filterKeywords: ["RTX™ 40"],
+      filter: [
+        {
+          promoliner: {
+            contains: "RTX™ 40",
+          },
+        },
+      ],
     },
     {
       type: "slider",
@@ -81,7 +88,98 @@ pageMap.set("gaming-laptops", {
       title: "GEFORCE RTX™ 30 SERIES LAPTOPS",
       description:
         "Explore exclusive Razer.com specials on these portable powerhouses",
-      filterKeywords: ["RTX™ 30"],
+      filter: [
+        {
+          promoliner: {
+            contains: "RTX™ 30",
+          },
+        },
+      ],
+    },
+  ],
+});
+
+pageMap.set("gaming-desktops-and-components", {
+  pageDescription: {
+    title: "GAMER ROOM",
+    description:
+      "Immersive lights and top-shelf PC parts to build your perfect gaming space and rig",
+  },
+  sections: [
+    {
+      type: "carousel",
+      title: "RAZER AETHER LIGHTS",
+      description: "RGB lamps, light bulbs, light strips, and more",
+      filter: [
+        {
+          name: {
+            contains: "Razer Aether",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "GAMING MONITORS",
+      description:
+        "Top-of-the-line, high-refresh rate QHD monitors for the smoothest, sharpest gaming experience",
+      filter: [
+        {
+          summary: {
+            contains: "The Ultimate Gaming Monitor",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "DESKTOP CASES & CONTROLLERS",
+      description:
+        "Mini-ITX and mid-tower ATX gaming chassis, PWM fan and ARGB controllers",
+      filter: [
+        {
+          OR: [
+            "Mini-ITX",
+            "mid-tower ATX",
+            "PC Fan Controller",
+            "Compatible to work with any ARGB device",
+          ].map(f => ({
+            summary: {
+              contains: f,
+            },
+          })),
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "COOLING",
+      description:
+        "High-performance PC case fans and AIO liquid coolers with Razer Chroma™ RGB",
+      filter: [
+        {
+          OR: ["Razer Hanbo Chroma", "Razer Kunai Chroma"].map(f => ({
+            name: {
+              contains: f,
+            },
+          })),
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "POWER SUPPLY & CABLES",
+      description:
+        "Platinum PSU with Razer Chroma™ RGB, high-speed cables for PC and Mac",
+      filter: [
+        {
+          OR: ["Razer Katana Chroma", "Razer Thunderbolt 4 Cable"].map(f => ({
+            name: {
+              contains: f,
+            },
+          })),
+        },
+      ],
     },
   ],
 });

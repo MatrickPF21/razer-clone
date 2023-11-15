@@ -16,6 +16,8 @@ type Context = {
   };
 };
 
+const avoidFilteringSlug = ["gaming-desktops-and-components"];
+
 export default function StorePageFilteredByCategorySlug({ params }: Context) {
   const parse = parseCategorySlugSchema(params.categorySlug);
 
@@ -57,7 +59,8 @@ export default function StorePageFilteredByCategorySlug({ params }: Context) {
               >
                 <ProductsByCategorySlug
                   slug={categorySlug}
-                  filter={section.filterKeywords}
+                  filter={section.filter}
+                  filteringSlug={!avoidFilteringSlug.includes(categorySlug)}
                 />
               </React.Suspense>
             </CarouselSection>
