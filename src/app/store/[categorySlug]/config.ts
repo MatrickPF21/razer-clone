@@ -334,3 +334,69 @@ pageMap.set("gaming-keyboards", {
     },
   ],
 });
+
+pageMap.set("gaming-audio", {
+  pageDescription: {
+    title: "GAMING AUDIO",
+    description:
+      "Explore Razer headsets, wireless headphones, earphones for gaming & broadcasting",
+  },
+  sections: [
+    {
+      type: "carousel",
+      title: "THE RAZER BLACKSHARK RANGE",
+      description:
+        "Acclaimed esports headsets designed for all-out performance and comfort",
+      filter: [
+        {
+          name: {
+            contains: "Razer BlackShark V2",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "THE RAZER BARRACUDA RANGE",
+      description:
+        "Versatile wireless hybrid headsets for home gaming and street living",
+      filter: [
+        {
+          name: {
+            contains: "Razer Barracuda",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "RAZER SPEAKERS",
+      description:
+        "Soundbars and full range speakers to amplify your entertainment",
+      filter: [
+        {
+          categories: {
+            some: {
+              category: {
+                slug: "gaming-speakers",
+              },
+            },
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "THE RAZER KRAKEN RANGE",
+      description:
+        "Immersive haptic headsets powered by Razer Chroma™ RGB and Razer HyperSense",
+      filter: [
+        {
+          name: {
+            contains: "Razer Kraken",
+          },
+        },
+      ],
+    },
+  ],
+});
