@@ -89,6 +89,7 @@ export type GlideCarouselCardProps = {
   titleClassName?: string;
   description: string;
   descriptionClassName?: string;
+  contentLeft?: boolean;
 };
 
 export function GlideCarouselCard({
@@ -98,6 +99,7 @@ export function GlideCarouselCard({
   titleClassName,
   description,
   descriptionClassName,
+  contentLeft = false,
 }: GlideCarouselCardProps) {
   return (
     <GlideItem>
@@ -130,7 +132,12 @@ export function GlideCarouselCard({
             className='hidden object-cover'
           />
         </picture>
-        <div className='px-4 py-2 sm:absolute sm:left-[62%] sm:top-0 sm:mx-auto sm:grid sm:h-full sm:max-h-[250] sm:w-full sm:max-w-[33%] sm:items-center'>
+        <div
+          className={cn(
+            "px-4 py-2 sm:absolute sm:left-[62%] sm:top-0 sm:mx-auto sm:grid sm:h-full sm:max-h-[250] sm:w-full sm:max-w-[33%] sm:items-center",
+            contentLeft ? "sm:left-[6%]" : "",
+          )}
+        >
           <div className='sm:justify-self-start'>
             <h2
               className={cn(

@@ -487,3 +487,118 @@ pageMap.set("content-creation", {
     },
   ],
 });
+
+pageMap.set("gaming-chairs", {
+  pageDescription: {
+    title: "GAMING CHAIRS",
+    description:
+      "Award-winning ergonomics and comfort for countless hours of gaming",
+  },
+  sections: [
+    {
+      type: "carousel",
+      title: "THE RAZER FUJIN RANGE",
+      description: "Gaming chairs with ultra-durable breathable mesh",
+      filter: [
+        {
+          name: {
+            contains: "Razer Fujin",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "ACCESSORIES",
+      description: "Head and lumbar cushions, rugs and mats, chair studs",
+      filter: [
+        {
+          categories: {
+            some: {
+              categoryId: "chairs-accessories",
+            },
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "COLLABS",
+      description:
+        "Officially licensed designs featuring the hottest brands and games",
+      filter: [
+        {
+          OR: [
+            "Razer Enki Pro -",
+            "Genshin Impact",
+            "Hello Kitty",
+            "Razer x *A Bathing Ape",
+          ].map(f => ({
+            name: {
+              contains: f,
+            },
+          })),
+        },
+        {
+          categories: {
+            some: {
+              categoryId: {
+                contains: "chair",
+              },
+            },
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "THE RAZER ENKI RANGE",
+      description: "Gaming chairs optimized for all-day gaming comfort",
+      filter: [
+        {
+          name: {
+            contains: "Razer Enki",
+          },
+        },
+      ],
+    },
+    {
+      type: "slider",
+      slides: [
+        {
+          title: "LICENSED EDITIONS",
+          description:
+            "Display your passion with fresh designs created in collaboration with the hottest brands.",
+          image:
+            "/store/gaming-chairs/gaming-furniture-fitfinder-revamp-desktop-licensedenki.jpg",
+          mobileImage:
+            "/store/gaming-chairs/768x500-gamingfurniture-fitfinder-revamp-mobile-licensedenki.jpg",
+          contentLeft: true,
+        },
+        {
+          title: "RAZER ISKUR XL",
+          description:
+            "Go big on support with a design that’s 15% larger than our standard model.",
+          image:
+            "/store/gaming-chairs/gamingfurniture-fitfinder-revamp-desktop-iskurxl.jpg",
+          mobileImage:
+            "/store/gaming-chairs/768x500-gamingfurniture-fitfinder-revamp-mobile-iskurxl.jpg",
+          contentLeft: true,
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "THE RAZER ISKUR RANGE",
+      description:
+        "Ergonomic gaming chairs designed to support perfect gaming form",
+      filter: [
+        {
+          name: {
+            contains: "Razer Iskur",
+          },
+        },
+      ],
+    },
+  ],
+});
