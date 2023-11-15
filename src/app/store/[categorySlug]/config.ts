@@ -400,3 +400,90 @@ pageMap.set("gaming-audio", {
     },
   ],
 });
+
+pageMap.set("content-creation", {
+  pageDescription: {
+    title: "CONTENT CREATION",
+    description:
+      "Create without limits with our professional webcams, microphones, and more",
+  },
+  sections: [
+    {
+      type: "carousel",
+      title: "HEADSETS",
+      description: "Stand out on any stream in both look and sound",
+      filter: [
+        {
+          categories: {
+            some: {
+              category: {
+                slug: "gaming-headsets",
+              },
+            },
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "OTHER STREAMING ACCESSORIES",
+      description:
+        "From capture cards to ARGB controllers, to analog audio mixers and lights",
+      filter: [
+        {
+          categories: {
+            some: {
+              categoryId: "streaming-accessories",
+            },
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "IN-EAR MONITOR",
+      description:
+        "Ergonomic wireless IEM for all-day streaming and content creation",
+      filter: [
+        {
+          name: {
+            contains: "Razer Moray",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "WEBCAMS",
+      description: "Always look your best on stream with the Razer Kiyo range",
+      filter: [
+        {
+          categories: {
+            some: {
+              category: {
+                slug: "streaming-cameras",
+              },
+            },
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "MICROPHONES",
+      description:
+        "Cut through the noise and bring your voice to life with the Razer Seiren range",
+      filter: [
+        {
+          categories: {
+            some: {
+              categoryId: {
+                equals: "streaming-microphones",
+              },
+            },
+          },
+        },
+      ],
+    },
+  ],
+});

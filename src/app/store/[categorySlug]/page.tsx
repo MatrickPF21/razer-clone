@@ -20,6 +20,7 @@ const avoidFilteringSlug = [
   "gaming-desktops-and-components",
   "gaming-mice",
   "gaming-audio",
+  "content-creation",
 ];
 
 export default function StorePageFilteredByCategorySlug({ params }: Context) {
