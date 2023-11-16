@@ -781,3 +781,118 @@ pageMap.set("mobile", {
     },
   ],
 });
+
+pageMap.set("gaming-gear", {
+  pageDescription: {
+    title: "APPAREL & GEAR",
+    description: "Lifestyle accessories and apparel for the gaming community",
+  },
+  sections: [
+    {
+      type: "carousel",
+      title: "BAGS",
+      description: "Built for those who carry hard",
+      filter: [
+        {
+          categories: {
+            some: {
+              categoryId: "gear-apparel-backpacks",
+            },
+          },
+        },
+      ],
+    },
+    {
+      type: "slider",
+      slides: [
+        {
+          title: "RAZER XANTHUS COLLECTION",
+          description: "THE FUSION OF UTILITY AND STYLE",
+          mobileImage: "/store/gaming-gear/768x500.jpg",
+          image: "/store/gaming-gear/1920x400.jpg",
+        },
+        {
+          title: "DECK THE HALLS WITH SNEKI SNEK",
+          description: "DOUBLE THE TREES, DOUBLE THE JOY",
+          mobileImage: "/store/gaming-gear/768x500-mobile.webp",
+          image: "/store/gaming-gear/1920x400-campaign-banner-desktop-(1).webp",
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "TOPS",
+      description: "Tees, tanks, shirts",
+      filter: [
+        {
+          categories: {
+            some: {
+              categoryId: "gear-apparel-shirts",
+            },
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "BOTTOMS",
+      description: "Shorts, cargo shorts, jeans, leggings",
+      filter: [
+        {
+          categories: {
+            some: {
+              categoryId: "gear-apparel-bottoms",
+            },
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "OUTWEAR",
+      description: "Hoodies, bomber jackets, track jackets",
+      filter: [
+        {
+          categories: {
+            some: {
+              categoryId: "gear-apparel-outerwear",
+            },
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "SNEKI SNEK",
+      description: "Plushies, cushions, hoodies, and other adorable merch",
+      filter: [
+        {
+          name: {
+            contains: "Razer Sneki Snek",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "OTHERS",
+      description: "Laptop sleeves, water bottles, masks, and more",
+      filter: [
+        {
+          categories: {
+            some: {
+              categoryId: "gear-apparel-accessories",
+            },
+          },
+        },
+        {
+          name: {
+            not: {
+              contains: "Razer Sneki Snek",
+            },
+          },
+        },
+      ],
+    },
+  ],
+});

@@ -24,6 +24,7 @@ const avoidFilteringSlug = [
   "gaming-chairs",
   "console-gaming",
   "mobile",
+  "gaming-gear",
 ];
 
 export default function StorePageFilteredByCategorySlug({ params }: Context) {
