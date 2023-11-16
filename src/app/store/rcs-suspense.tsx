@@ -31,37 +31,9 @@ const render = (
 export async function FreshOffTheLine() {
   const products = await db.product.findMany({
     where: {
-      OR: [
-        {
-          categories: {
-            some: {
-              category: {
-                id: {
-                  equals: "system-laptops",
-                },
-              },
-            },
-          },
-        },
-        {
-          categories: {
-            some: {
-              category: {
-                id: {
-                  contains: "chairs",
-                },
-              },
-            },
-          },
-        },
-      ],
+      mainPageSectionName: "fresh-off-the-line",
     },
     take: 9,
-    orderBy: [
-      {
-        createdAt: "desc",
-      },
-    ],
     include: {
       price: true,
       badge: true,
@@ -74,41 +46,7 @@ export async function FreshOffTheLine() {
 export async function BestSellers() {
   const products = await db.product.findMany({
     where: {
-      OR: [
-        {
-          categories: {
-            some: {
-              category: {
-                id: {
-                  contains: "mice",
-                },
-              },
-            },
-          },
-        },
-        {
-          categories: {
-            some: {
-              category: {
-                id: {
-                  contains: "camera",
-                },
-              },
-            },
-          },
-        },
-        {
-          categories: {
-            some: {
-              category: {
-                id: {
-                  contains: "headsets",
-                },
-              },
-            },
-          },
-        },
-      ],
+      mainPageSectionName: "best-sellers",
     },
     take: 9,
     orderBy: [
@@ -128,41 +66,7 @@ export async function BestSellers() {
 export async function RazerExclusives() {
   const products = await db.product.findMany({
     where: {
-      OR: [
-        {
-          categories: {
-            some: {
-              category: {
-                id: {
-                  contains: "controllers",
-                },
-              },
-            },
-          },
-        },
-        {
-          categories: {
-            some: {
-              category: {
-                id: {
-                  contains: "mobile",
-                },
-              },
-            },
-          },
-        },
-        {
-          categories: {
-            some: {
-              category: {
-                id: {
-                  contains: "keyboards",
-                },
-              },
-            },
-          },
-        },
-      ],
+      mainPageSectionName: "razer-exclusives",
     },
     take: 9,
     orderBy: [

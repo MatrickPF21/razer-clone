@@ -1,14 +1,12 @@
 import React from "react";
 
-import GlideCarousel, {
-  GlideCarouselCard,
-  type GlideCarouselCardProps,
-} from "../_components/glide-carousel";
+import type { GlideCarouselCardProps } from "../_components/glide-carousel";
 import { ProductCardSkeleton } from "../_components/product-card";
 import CarouselSection from "../_components/sections/carousel-section";
 import StorePageDescriptionSection from "../_components/sections/store-page-description-section";
 import WhyBuyRazerSection from "../_components/sections/why-buy-razer-section";
 import { BestSellers, FreshOffTheLine, RazerExclusives } from "./rcs-suspense";
+import SliderSection from "../_components/sections/slider-section";
 
 export default function StorePage() {
   return (
@@ -45,13 +43,7 @@ export default function StorePage() {
           <BestSellers />
         </React.Suspense>
       </CarouselSection>
-      <section className='mb-10 mt-4 w-full overflow-hidden px-2'>
-        <GlideCarousel items={firstSlider.length}>
-          {firstSlider.map((props, idx) => (
-            <GlideCarouselCard key={idx} {...props} />
-          ))}
-        </GlideCarousel>
-      </section>
+      <SliderSection items={firstSlider} />
       <CarouselSection
         title='RAZER EXCLUSIVES'
         description='Explore unique products and services only available at our official online store'
