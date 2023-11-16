@@ -18,6 +18,7 @@ const roboto = Roboto({
   subsets: ["latin"],
   fallback: ["sans-serif"],
   display: "swap",
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
