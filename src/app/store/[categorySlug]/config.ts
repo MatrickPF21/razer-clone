@@ -602,3 +602,126 @@ pageMap.set("gaming-chairs", {
     },
   ],
 });
+
+pageMap.set("console-gaming", {
+  pageDescription: {
+    title: "CONSOLE",
+    description:
+      "Gaming audio, controllers, and accessories for Xbox and PlayStation",
+  },
+  sections: [
+    {
+      type: "carousel",
+      title: "ALL-BUTTON ARCADE CONTROLLERS",
+      description:
+        "Perfect your execution with a quad movement button layout and lightning-fast optical switches",
+      filter: [
+        {
+          name: {
+            contains: "Razer Kitsune",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "EARBUDS",
+      description:
+        "Enjoy seamless wireless audio with the Razer HammerHead HyperSpeed for Console",
+      filter: [
+        {
+          name: {
+            contains: "Razer HammerHead",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "PLAYSTATION AND XBOX SKINS",
+      description:
+        "Add personal flair to your setup with a range of high-quality custom console skins",
+      filter: [
+        {
+          name: {
+            contains: "Razer Skins for",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "HEADSETS",
+      description:
+        "Experience complete audio immersion with the Razer Kaira range for Xbox and PlayStation",
+      filter: [
+        {
+          name: {
+            contains: "Razer Kaira",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "CONTROLLERS",
+      description:
+        "Unlock enhanced control and customization with the Razer Wolverine V2 range",
+      filter: [
+        {
+          name: {
+            contains: "Razer Wolverine V2",
+          },
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "COLLABS",
+      description:
+        "Officially licensed wireless controllers and quick charging stands for Xbox",
+      filter: [
+        {
+          OR: ["Limited Edition", "Sonic the Hedgehog"].map(f => ({
+            name: {
+              contains: f,
+            },
+          })),
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "QUICK CHARGING STANDS & BUNDLES",
+      description: "Accessories and sets to round out your setup",
+      filter: [
+        {
+          OR: [
+            {
+              AND: [
+                {
+                  name: { contains: "Quick Charging Stand for Xbox -" },
+                },
+                {
+                  name: { not: { contains: "Limited Edition" } },
+                },
+              ],
+            },
+            {
+              name: {
+                contains: "Razer Essential Duo Bundle for Xbox",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "MADE FOR META GEAR",
+      description:
+        "Enhance your VR immersion with gear & accessories authorized for Meta Quest 2",
+      filter: [{ name: { contains: "Meta Quest 2" } }],
+    },
+  ],
+});
