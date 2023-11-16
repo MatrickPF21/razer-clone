@@ -725,3 +725,59 @@ pageMap.set("console-gaming", {
     },
   ],
 });
+
+pageMap.set("mobile", {
+  pageDescription: {
+    title: "MOBILE",
+    description:
+      "Gaming and lifestyle gear for seamless entertainment with your phone or tablet",
+  },
+  sections: [
+    {
+      type: "carousel",
+      title: "CONTROLLERS",
+      description:
+        "Bring your A-game anywhere with the Razer Kishi Android and iPhone controllers",
+      filter: [{ name: { contains: "Razer Kishi" } }],
+    },
+    {
+      type: "carousel",
+      title: "ANDROID GAMING DEVICES",
+      description:
+        "Experience a new era of handheld gaming with the Razer Edge",
+      filter: [{ name: { contains: "Razer Edge" } }],
+    },
+    {
+      type: "carousel",
+      title: "AUDIO",
+      description: "Lifestyle headphones and earbuds",
+      filter: [
+        {
+          OR: ["mobile-headsets", "mobile-in-ears"].map(f => ({
+            categories: {
+              some: {
+                categoryId: f,
+              },
+            },
+          })),
+        },
+      ],
+    },
+    {
+      type: "carousel",
+      title: "ACCESSORIES",
+      description: "Essential add-ons to maximize your smartphone",
+      filter: [
+        {
+          OR: ["mobile-accessories", "mobile-cases"].map(f => ({
+            categories: {
+              some: {
+                categoryId: f,
+              },
+            },
+          })),
+        },
+      ],
+    },
+  ],
+});
