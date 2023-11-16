@@ -4,8 +4,6 @@ import GlideCarousel, {
   GlideCarouselCard,
   type GlideCarouselCardProps,
 } from "../_components/glide-carousel";
-import MainWrapper from "../_components/main-wrapper";
-import Notification from "../_components/notification";
 import { ProductCardSkeleton } from "../_components/product-card";
 import CarouselSection from "../_components/sections/carousel-section";
 import StorePageDescriptionSection from "../_components/sections/store-page-description-section";
@@ -14,8 +12,7 @@ import { BestSellers, FreshOffTheLine, RazerExclusives } from "./rcs-suspense";
 
 export default function StorePage() {
   return (
-    <MainWrapper>
-      <Notification />
+    <>
       <StorePageDescriptionSection
         title='THE LATEST AND GREATEST GAMING GEAR'
         description='Razer mice, keyboards, headsets, laptops&nbsp;&amp;&nbsp;more'
@@ -70,7 +67,7 @@ export default function StorePage() {
         </React.Suspense>
       </CarouselSection>
       <WhyBuyRazerSection />
-    </MainWrapper>
+    </>
   );
 }
 

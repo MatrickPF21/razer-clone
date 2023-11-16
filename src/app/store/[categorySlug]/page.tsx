@@ -1,8 +1,6 @@
 import { notFound } from "next/navigation";
 import React from "react";
 
-import MainWrapper from "@/app/_components/main-wrapper";
-import Notification from "@/app/_components/notification";
 import { ProductCardSkeleton } from "@/app/_components/product-card";
 import CarouselSection from "@/app/_components/sections/carousel-section";
 import SliderSection from "@/app/_components/sections/slider-section";
@@ -46,8 +44,7 @@ export default function StorePageFilteredByCategorySlug({ params }: Context) {
   }
 
   return (
-    <MainWrapper>
-      <Notification />
+    <>
       <StorePageDescriptionSection {...config.pageDescription} />
       {config.sections.map((section, idx) => {
         if (section.type === "slider") {
@@ -78,6 +75,6 @@ export default function StorePageFilteredByCategorySlug({ params }: Context) {
           return null;
         }
       })}
-    </MainWrapper>
+    </>
   );
 }
