@@ -23,6 +23,7 @@ model Product {
   mainPageSectionName String?
 
   categories CategoryInProduct[]
+  images     Image[]
   price      Price?
   badge      Badge?              @relation(fields: [badgeId], references: [id], onDelete: Cascade)
   badgeId    String?
@@ -93,4 +94,37 @@ model Badge {
 enum BadgeColor {
   YELLOW
   ORANGE
+}
+
+model Image {
+  id           String      @id @default(uuid())
+  altText      String
+  galleryIndex Int         @default(0)
+  url          String      @db.VarChar(1000)
+  imageType    ImageType
+  format       ImageFormat
+
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([productId])
+  @@map("image")
+}
+
+enum ImageType {
+  PRIMARY
+  GALLERY
+}
+
+enum ImageFormat {
+  superZoom
+  zoom
+  zoomMobile
+  zoomTablet
+  product
+  thumbnail
+  cartIcon
 }
