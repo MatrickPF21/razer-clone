@@ -97,7 +97,6 @@ enum BadgeColor {
 }
 
 model Image {
-  id           String      @id @default(uuid())
   altText      String
   galleryIndex Int         @default(0)
   url          String      @db.VarChar(1000)
@@ -110,6 +109,7 @@ model Image {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  @@id([productId, imageType, format, galleryIndex])
   @@index([productId])
   @@map("image")
 }
