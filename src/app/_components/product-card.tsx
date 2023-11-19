@@ -113,9 +113,14 @@ const colorConfig: Record<BadgeColor | "BLUE", string> = {
 type ProductCardBadgeProps = {
   color: keyof typeof colorConfig;
   text: string;
+  classname?: string;
 };
 
-function ProductCardBadge({ color, text }: ProductCardBadgeProps) {
+export function ProductCardBadge({
+  color,
+  text,
+  classname,
+}: ProductCardBadgeProps) {
   const bg = colorConfig[color];
 
   return (
@@ -123,6 +128,7 @@ function ProductCardBadge({ color, text }: ProductCardBadgeProps) {
       className={cn(
         "absolute -left-[10px] top-5 max-w-full px-[1em] py-[5px] text-center font-roboto text-base font-bold text-black",
         bg,
+        classname,
       )}
     >
       {text}
