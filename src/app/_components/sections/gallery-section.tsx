@@ -8,7 +8,7 @@ import { formatPrices } from "@/utils";
 import { ProductCardBadge, type ProductCardBadgeProps } from "../product-card";
 import { Button } from "../ui/button";
 
-type GallerySectionProps = {
+export type GallerySectionProps = {
   badge?: ProductCardBadgeProps | null;
   zoomImages: Pick<Image, "altText" | "galleryIndex" | "url">[];
   thumbnails: Pick<Image, "altText" | "galleryIndex" | "url">[];
@@ -108,9 +108,26 @@ export default function GallerySection({
             {summary}
           </h3>
         )}
-        <div className='mt-2 font-RazerF5 text-[1.3125rem] leading-[31px]'>
-          {formatPrices(price.amount, price.currency)}
-        </div>
+        {price.discount ? (
+          <div className='mt-2 flex items-baseline gap-[5px]'>
+            <span className='font-RazerF5 text-[1.3125rem] leading-[31px]'>
+              {formatPrices(
+                price.amount * ((100 - price.discount) / 100),
+                price.currency,
+              )}
+            </span>
+            <span className='font-roboto text-[1.125rem] font-light text-[#999] line-through'>
+              {formatPrices(price.amount, price.currency)}
+            </span>
+            <span className='font-roboto text-[1.125rem] font-light text-[#999] line-through'>
+              ({price.discount}% off)
+            </span>
+          </div>
+        ) : (
+          <div className='mt-2 font-RazerF5 text-[1.3125rem] leading-[31px]'>
+            {formatPrices(price.amount, price.currency)}
+          </div>
+        )}
       </article>
       <article className='mt-9 px-[1.125rem] font-roboto text-[.875rem] leading-[1.4] md:pl-0'>
         <ul className='ml-4 list-disc text-[#999]'>
