@@ -1,4 +1,3 @@
-import type { Image } from "@prisma/client";
 import { Menu } from "lucide-react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -7,9 +6,7 @@ import { notFound } from "next/navigation";
 import { db } from "@/server/db";
 import MainWrapper from "../_components/main-wrapper";
 import Notification from "../_components/notification";
-import GallerySection, {
-  type GallerySectionProps,
-} from "../_components/sections/gallery-section";
+import GallerySection from "../_components/sections/gallery-section";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -111,10 +108,18 @@ export default async function BuyProductPage({ params }: Context) {
           specs={product.specs}
           thumbnails={product.images
             .filter(i => i.format === "thumbnail")
-            .map(imageMapper)}
+            .map(image => ({
+              altText: image.altText,
+              galleryIndex: image.galleryIndex,
+              url: image.url,
+            }))}
           zoomImages={product.images
             .filter(i => i.format === "zoomMobile")
-            .map(imageMapper)}
+            .map(image => ({
+              altText: image.altText,
+              galleryIndex: image.galleryIndex,
+              url: image.url,
+            }))}
           badge={
             product.badge
               ? {
@@ -130,11 +135,3 @@ export default async function BuyProductPage({ params }: Context) {
     </>
   );
 }
-
-export const imageMapper = (
-  image: Image,
-): GallerySectionProps["zoomImages"][number] => ({
-  altText: image.altText,
-  galleryIndex: image.galleryIndex,
-  url: image.url,
-});
