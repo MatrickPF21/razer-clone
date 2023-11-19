@@ -110,7 +110,7 @@ const colorConfig: Record<BadgeColor | "BLUE", string> = {
   BLUE: "bg-[#28aadc]",
 };
 
-type ProductCardBadgeProps = {
+export type ProductCardBadgeProps = {
   color: keyof typeof colorConfig;
   text: string;
   classname?: string;

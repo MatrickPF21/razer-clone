@@ -17,7 +17,7 @@ model Product {
   isRgb               Boolean
   summary             String? @db.VarChar(300)
   promoliner          String? @db.VarChar(300)
-  specs               String  @db.VarChar(500)
+  specs               String  @db.VarChar(500) // separated by <space>
   image               String  @db.VarChar(1000)
   url                 String
   mainPageSectionName String?
